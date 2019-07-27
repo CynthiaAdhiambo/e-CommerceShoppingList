@@ -1,13 +1,13 @@
+
 @charset "utf-8";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "../node_modules/bulma/bulma.sass";
 
 .mainBlock{
   min-height: 400px;
   }
-  nav{
-  border-bottom: solid 1px #333333;
-  }
   a{
       color: whitesmoke;
       text-decoration: none;
   }
+

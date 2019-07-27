@@ -14,18 +14,27 @@ import { HomeModule } from './home/home.module';
 import { IndexModule } from './index/index.module';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
+import { AppMaterialModule } from './shared/app-material.module';
+import { HeaderComponent } from './shared/header/header.component';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [ AppComponent ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     AppRoutingModule,
     HomeModule,
     IndexModule,
-    RouterModule.forRoot(routes)
+    SharedModule,
+    RouterModule.forRoot(routes),
+    AppMaterialModule,
+    HttpClientModule
   ],
+  exports: [AppMaterialModule],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

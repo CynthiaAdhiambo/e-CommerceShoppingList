@@ -1,0 +1,52 @@
+<mat-card>
+
+  <mat-toolbar>
+    <mat-toolbar-row>
+        <span>{{pageTitle}}</span>
+        <span class="example-spacer"></span>
+
+        <mat-icon class="example-icon" aria-hidden="false"
+          aria-label="Account Status icon" [color] = "userStatusColor">account_box</mat-icon>
+
+        <mat-icon class="example-icon" aria-hidden="false" aria-label="Shopping Cart icon"
+         matBadge="{{counter}}"  matBadgeColor="accent" routerLink = "/cart">add_shopping_cart</mat-icon>
+
+        <mat-icon [matMenuTriggerFor]="helpmenu" class="example-icon"
+         aria-hidden="false" aria-label="Help icon">help_outline</mat-icon>
+
+        <mat-icon [matMenuTriggerFor]="navmenu" class="example-icon"
+          aria-hidden="false" aria-label="Dashboard icon">dashboard</mat-icon>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+    <mat-menu #helpmenu="matMenu">
+      <div *ngIf="helpTitle == 'LoginPage Help'">
+        This is the Login Page Help
+      </div>
+      <div *ngIf="helpTitle == 'RegisterPage Help'">
+          This is the Register Page Help
+      </div>
+       {{helpTitle}}
+      </mat-menu>
+
+      <mat-menu #navmenu="matMenu">
+          <button mat-menu-item routerLink="">
+            <mat-icon class="example-icon" aria-hidden="false"
+              aria-label="Account Lock icon">lock</mat-icon>Login
+          </button>
+
+          <button mat-menu-item routerLink="register">
+            <mat-icon class="example-icon" aria-hidden="false" routerLink="register"
+              aria-label="Note Add icon">note_add</mat-icon>Register
+          </button>
+
+          <button mat-menu-item routerLink="/cart">
+            <mat-icon class="example-icon" aria-hidden="false" aria-label="Shopping Cart icon"
+              matBadge="{{counter}}"  matBadgeColor="accent">add_shopping_cart</mat-icon>Cart
+          </button>
+
+          <button mat-menu-item routerLink="/cart">
+              <mat-icon  class="example-icon"
+              aria-hidden="false" aria-label="Dashboard icon">dashboard</mat-icon>Dashboard
+          </button>
