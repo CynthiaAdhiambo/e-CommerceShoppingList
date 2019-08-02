@@ -1,2 +1,30 @@
-<app-header pageTitle = "Login" helpTitle="LoginPage Help"></app-header>
-<p>login works!</p>
+<app-header pageTitle = "Login page" helpTitle="LoginPage Help"></app-header>
+
+      <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+
+        <div class="row" *ngIf="authError">
+          <div class="col-12 alert alert-danger">{{ authError?.message }}</div>
+        </div>
+        <mat-form-field appearance="outline">
+            <mat-label for ="Email">Email</mat-label>
+            <input matInput placeholder="Enter Email" type="email" ngModel #email="ngModel" name="email"
+              class="form-control" required>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>e.g example@something.com</mat-hint>
+          </mat-form-field>
+          <br>
+
+          <mat-form-field appearance="outline">
+              <mat-label for ="Password">Password</mat-label>
+              <input matInput placeholder="Enter Password" type="password" ngModel #password="ngModel" name="password"
+                class="form-control" required>
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>e.g A-Z, a-z</mat-hint>
+            </mat-form-field>
+            <br>
+
+            <a href="/register">Click here to register</a>
+
+            <button class="primary" type="submit">Login</button>
+      </form>
+

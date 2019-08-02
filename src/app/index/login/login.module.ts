@@ -4,8 +4,8 @@ import { LoginComponent } from './login.component';
 import { RouterModule } from '@angular/router';
 import { LoginRoutes } from './login.routes';
 import { AppMaterialModule } from 'src/app/shared/app-material.module';
-import { HeaderComponent } from 'src/app/shared/header/header.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -14,7 +14,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     RouterModule.forChild(LoginRoutes),
     CommonModule,
     AppMaterialModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: []

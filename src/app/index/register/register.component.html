@@ -1,2 +1,57 @@
-<app-header pageTitle = "SignUp" helpTitle="RegisterPage Help"></app-header>
-<p>register works!</p>
+<app-header pageTitle = "SignUp page" helpTitle="RegisterPage Help"></app-header>
+<div class="col-12">
+  <div class="row" *ngIf="authError">
+    <div class="alert alert-danger">
+      {{ authError?.message }}
+    </div>
+  </div>
+  <form #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)">
+      <mat-form-field appearance="outline">
+          <mat-label for ="FirstName">First Name</mat-label>
+          <input matInput placeholder="Enter First Name" type="text" ngModel #firstname="ngModel" name="firstName"
+              class="form-control" required>
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>e.g A-Z, a-z</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label for ="LastName">Last Name</mat-label>
+            <input matInput placeholder="Enter Last Name" type="text" ngModel #lastname="ngModel" name="lastName"
+              class="form-control" required>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>e.g A-Z, a-z</mat-hint>
+          </mat-form-field>
+          <br>
+
+          <mat-form-field appearance="outline">
+              <mat-label for ="Email">Email</mat-label>
+              <input matInput placeholder="Enter Email" type="email" ngModel #email="ngModel" name="email"
+                class="form-control" required>
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>e.g example@something.com</mat-hint>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field appearance="outline">
+                <mat-label for ="Password">Password</mat-label>
+                <input matInput placeholder="Enter Password" type="password" ngModel #password="ngModel" name="password"
+                  class="form-control" required>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>e.g A-Z, a-z</mat-hint>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="form-field">
+                  <mat-label for ="Confirm Password">Confirm Password</mat-label>
+                  <input matInput placeholder="Confirm Password" type="password" class="form-control" required>
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                  <mat-hint>e.g A-Z, a-z</mat-hint>
+                </mat-form-field>
+                <br>
+                <br>
+
+          <button class="primary" type="submit">Submit</button>
+
+  </form>
+</div>
+
+
